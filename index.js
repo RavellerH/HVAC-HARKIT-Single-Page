@@ -1,32 +1,26 @@
 // JAVASCRIPT INDEX PAGE
 function updateDateTime() {
   const now = new Date();
-  const hour = ("0" + now.getHours()).slice(-2);
-  const minute = ("0" + now.getMinutes()).slice(-2);
-  const second = ("0" + now.getSeconds()).slice(-2);
+  const hour = String(now.getHours()).padStart(2, "0");
+  const minute = String(now.getMinutes()).padStart(2, "0");
+  const second = String(now.getSeconds()).padStart(2, "0");
 
-  const dateTimeHTML = `
-      <span id="currentDateTime" class="date">
-          <b>${now.toLocaleDateString("en-US", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}</b>
-      </span>
-      <span id="currentTime" class="time">
-          <b>${hour}:${minute}:${second}</b>
-      </span>
-  `;
+  document.getElementById(
+    "currentDateTime"
+  ).innerHTML = `<b>${now.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })}</b>`;
 
-  // Update the entire date-time-container div
-  document.getElementById("date-time-container").innerHTML = dateTimeHTML;
+  document.getElementById(
+    "currentTime"
+  ).innerHTML = `<b>${hour}:${minute}:${second}</b>`;
 }
 
-// Initial call to display the date and time immediately
+// Call updateDateTime initially and then every second
 updateDateTime();
-
-// Update the date and time every second
 setInterval(updateDateTime, 1000);
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -107,10 +101,12 @@ function updateInfoValue() {
         document.getElementById("bgstatAM").style.backgroundColor =
           "rgb(77, 12, 182)";
         document.getElementById("statusAM").textContent = "AUTO";
+        updateStatusAM("Auto");
       } else {
         document.getElementById("bgstatAM").style.backgroundColor = "orangered";
         document.getElementById("statusAM").textContent = "MANUAL";
-        document.getElementById("statusAM").style.fontSize = "2vh";
+        // document.getElementById("statusAM").style.fontSize = "2vh";
+        updateStatusAM("Manual");
       }
     });
 }
@@ -1067,3 +1063,28 @@ function showbtn() {
   document.getElementById("btndone_M").style.display = "block";
   document.getElementById("btnset_M").style.display = "none";
 }
+
+function toggleControlButtons(isAuto) {
+  const controlButtons = document.getElementById("controlButtons");
+  if (isAuto) {
+    controlButtons.classList.remove("slide-up");
+    controlButtons.classList.add("slide-down");
+  } else {
+    controlButtons.classList.remove("slide-down");
+    controlButtons.classList.add("slide-up");
+  }
+}
+
+// Example function to update the status and toggle buttons
+function updateStatusAM(status) {
+  const statusAM = document.getElementById("statusAM");
+  statusAM.textContent = status;
+
+  if (status === "Auto") {
+    toggleControlButtons(true);
+  } else {
+    toggleControlButtons(false);
+  }
+}
+
+// Example of how you might call the updateStatusAM function based on some status

@@ -1826,7 +1826,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #00ffff, #23a6b8);
+  background: linear-gradient(135deg, #00ffff, #2332b8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -2347,14 +2347,28 @@ button:disabled:hover {
   padding: 1.7vw;
 }
 .date-time-container span {
-  color: #0050ac;
+  color: #083e7a;
   font-weight: italic;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+  flex-direction: column; /* Stacks the date and time vertically */
+  align-items: center;    /* Center align both date and time */
+  margin-top: 1vh;        /* Adjust margin as needed */
 }
 .date {
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 .time {
-  font-size: 2.1vw;
+  font-size: 3vw;
   text-align: center;
+  margin-top: 0.5vh;
+}
+.slide-up {
+  max-height: 21vh;
+  overflow: hidden;
+  transition: max-height 3.5s ease-in-out;
+}
+
+.slide-down {
+  max-height: 500px; /* Adjust this value based on the actual height of the content */
+  transition: max-height 0.5s ease-in-out;
 }
