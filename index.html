@@ -162,56 +162,54 @@
                         onclick="closeModalinfo()">&times;</span>
                     <h2>Information</h2>
                     <table>
-                        <tr>
-                            <th style="text-align: left;">Mode:____</th>
+                        <tr class="hidden">
+                            <th style="text-align: left; " >Mode:____</th>
                             <td id="modeValue">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Turbo:___</th>
+                            <th style="text-align: left;">Temp Cathlab:___</th>
                             <td id="turboValue">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Swing:___</th>
+                            <th style="text-align: left;">RH Cathlab:___</th>
                             <td id="swingValue">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Quiet:___</th>
+                            <th style="text-align: left;">Temp Machine:___</th>
                             <td id="quietValue">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Sleep:___</th>
+                            <th style="text-align: left;">RH Machine:___</th>
                             <td id="sleepValue">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Timer ON
-                                1:___</th>
+                            <th style="text-align: left;">Pre & Med Filter:___</th>
                             <td id="timeron1Value">Loading data...</td>
                         </tr>
                         <tr>
-                            <th style="text-align: left;">Timer ON
-                                2:___</th>
+                            <th style="text-align: left;">HEPA Filter:___</th>
                             <td id="timeron2Value">Loading data...</td>
                         </tr>
-                        <tr>
+                        <tr class="hidden">
                             <th style="text-align: left;">Timer OFF
                                 1:__</th>
                             <td id="timeroff1Value">Loading data...</td>
                         </tr>
-                        <tr>
+                        <tr class="hidden">
                             <th style="text-align: left;">Timer OFF
                                 2:__</th>
                             <td id="timeroff2Value">Loading data...</td>
                         </tr>
-                        <tr>
+                        <tr class="hidden">
                             <th style="text-align: left;">Delay
                                 Timer:__</th>
                             <td id="delayValue">Loading data...</td>
                         </tr>
-                        <tr>
+                        <tr class="hidden">
                             <th style="text-align: left;">Fan:_</th>
                             <td id="fanValue">Loading data...</td>
                         </tr>
-                        <tr>
+                        <tr class="hidden">
                             <th style="text-align: left;">Unit
                                 Status:_</th>
                             <td id="unitstatValue">Loading data...</td>
@@ -305,6 +303,7 @@
                     backdrop-filter: blur(8.8px);
                     -webkit-backdrop-filter: blur(8.8px);
                     ">
+                    
                                 <div id="gauRaw"
                                     class=" gauge-container h-[10vw] flex justify-center items-center pt-[1vw] text-slate-500 pb-[1vw] ">
                                     <div id="traw1" class="hidden"></div>
@@ -317,6 +316,8 @@
                                         class="text-[1.1vw] font-bold text-slate-600 
                                      px-[1vw] text-center">...</div>
                                 </div>
+
+                                
 
                             </div>
                             <div

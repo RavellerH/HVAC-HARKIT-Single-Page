@@ -64,17 +64,17 @@ function updateInfoValue() {
     .then((data) => {
       const modeValue = data[0].Mode;
       document.getElementById("modeValue").textContent = modeValue;
-      const turboValue = data[0].Turbo;
+      const turboValue = data[0].TCathlab;
       document.getElementById("turboValue").textContent = turboValue;
-      const swingValue = data[0].Swing;
+      const swingValue = data[0].RHCathlab;
       document.getElementById("swingValue").textContent = swingValue;
-      const quietValue = data[0].Quiet;
+      const quietValue = data[0].TMachine;
       document.getElementById("quietValue").textContent = quietValue;
-      const sleepValue = data[0].Sleep;
+      const sleepValue = data[0].RHMachine;
       document.getElementById("sleepValue").textContent = sleepValue;
-      const timeron1Value = data[0].TimerON1;
+      const timeron1Value = data[0].PREMED;
       document.getElementById("timeron1Value").textContent = timeron1Value;
-      const timeron2Value = data[0].TimerON2;
+      const timeron2Value = data[0].HEPA;
       document.getElementById("timeron2Value").textContent = timeron2Value;
       const timeroff1Value = data[0].TimerOFF1;
       document.getElementById("timeroff1Value").textContent = timeroff1Value;
@@ -102,7 +102,28 @@ function updateInfoValue() {
           "rgb(77, 12, 182)";
         document.getElementById("statusAM").textContent = "AUTO";
         updateStatusAM("Auto");
-      } else {
+      } else if (automanual === 2) {
+        let isRed = true; // Flag to toggle between red and blue
+        document.getElementById("statusAM").textContent = "ALARM!";
+    
+        // Start blinking effect
+        const blinkInterval = setInterval(() => {
+            if (isRed) {
+                document.getElementById("bgstatAM").style.backgroundColor = "red";
+            } else {
+                document.getElementById("bgstatAM").style.backgroundColor = "blue";
+            }
+            isRed = !isRed; // Toggle the flag
+        }, 500); // Change color every 500ms
+    
+        // Optional: Stop blinking after a certain time (e.g., 10 seconds)
+        setTimeout(() => {
+            clearInterval(blinkInterval); // Stop blinking
+            document.getElementById("bgstatAM").style.backgroundColor = "orangered"; // Set to a default color if needed
+        }, 10000); // Stop after 10 seconds
+    }
+      
+      else {
         document.getElementById("bgstatAM").style.backgroundColor = "orangered";
         document.getElementById("statusAM").textContent = "MANUAL";
         // document.getElementById("statusAM").style.fontSize = "2vh";
